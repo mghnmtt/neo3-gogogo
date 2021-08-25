@@ -1,4 +1,4 @@
-module github.com/joeqian10/neo3-gogogo
+module github.com/mghnmtt/neo3-gogogo
 
 go 1.14
 

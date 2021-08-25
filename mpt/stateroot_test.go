@@ -1,12 +1,12 @@
 package mpt
 
 import (
-	"github.com/joeqian10/neo3-gogogo/rpc/models"
+	"github.com/mghnmtt/neo3-gogogo/rpc/models"
 	"github.com/stretchr/testify/assert"
 	"testing"
 
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/io"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/io"
 )
 
 func TestStateRoot_Serialize(t *testing.T) {

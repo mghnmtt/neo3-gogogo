@@ -1,9 +1,9 @@
 package nep17
 
 import (
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/rpc"
-	"github.com/joeqian10/neo3-gogogo/rpc/models"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/rpc"
+	"github.com/mghnmtt/neo3-gogogo/rpc/models"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"math/big"

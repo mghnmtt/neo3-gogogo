@@ -18,15 +18,15 @@ Make sure you have Go installed on your computer before you move forward.
 First, simply add this SDK to GOPATH:
 
 ```bash
-go get github.com/joeqian10/neo3-gogogo
+go get github.com/mghnmtt/neo3-gogogo
 ```
 
 Secondly, in your Go project, import the necessary modules from neo3-gogogo, for instance:
 
 ```go
 import (
-	"github.com/joeqian10/neo3-gogogo/rpc"
-	"github.com/joeqian10/neo3-gogogo/wallet"
+	"github.com/mghnmtt/neo3-gogogo/rpc"
+	"github.com/mghnmtt/neo3-gogogo/wallet"
 )
 
 // The avaliable modules are: 
@@ -64,9 +64,9 @@ Now, you are all set to explore more features with neo3-gogogo, including:
 package demo
 
 import (
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/rpc"
-	"github.com/joeqian10/neo3-gogogo/wallet"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/rpc"
+	"github.com/mghnmtt/neo3-gogogo/wallet"
 	"math/big"
 )
 
@@ -123,12 +123,12 @@ func main() {
 package demo
 
 import (
-	"github.com/joeqian10/neo3-gogogo/crypto"
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/rpc"
-	"github.com/joeqian10/neo3-gogogo/sc"
-	"github.com/joeqian10/neo3-gogogo/tx"
-	"github.com/joeqian10/neo3-gogogo/wallet"
+	"github.com/mghnmtt/neo3-gogogo/crypto"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/rpc"
+	"github.com/mghnmtt/neo3-gogogo/sc"
+	"github.com/mghnmtt/neo3-gogogo/tx"
+	"github.com/mghnmtt/neo3-gogogo/wallet"
 )
 
 func main() {
@@ -232,8 +232,8 @@ package sample
 
 import "crypto/elliptic"
 import "encoding/hex"
-import "github.com/joeqian10/neo3-gogogo/crypto"
-import "github.com/joeqian10/neo3-gogogo/helper"
+import "github.com/mghnmtt/neo3-gogogo/crypto"
+import "github.com/mghnmtt/neo3-gogogo/helper"
 import "math/big"
 
 func SampleMethod() {
@@ -294,7 +294,7 @@ package sample
 import (
 	"encoding/hex"
 	"math/big"
-	"github.com/joeqian10/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/helper"
 )
 
 func SampleMethod() {
@@ -357,7 +357,7 @@ package sample
 
 import (
 	"bytes"
-	"github.com/joeqian10/neo3-gogogo/io"
+	"github.com/mghnmtt/neo3-gogogo/io"
 )
 
 func SampleMethod() {
@@ -399,8 +399,8 @@ package sample
 
 import (
 	"encoding/hex"
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/keys"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/keys"
 )
 
 func SampleMethod() {
@@ -436,9 +436,9 @@ state service in neo, refer to [StateService](https://github.com/neo-project/neo
 ```golang
 package sample
 
-import "github.com/joeqian10/neo3-gogogo/crypto"
-import "github.com/joeqian10/neo3-gogogo/helper"
-import "github.com/joeqian10/neo3-gogogo/mpt"
+import "github.com/mghnmtt/neo3-gogogo/crypto"
+import "github.com/mghnmtt/neo3-gogogo/helper"
+import "github.com/mghnmtt/neo3-gogogo/mpt"
 
 func SampleMethod() {
 	// resolve proof
@@ -464,9 +464,9 @@ to [NEP17](https://github.com/neo-project/proposals/tree/nep-17).
 ```golang
 package sample
 
-import "github.com/joeqian10/neo3-gogogo/helper"
-import "github.com/joeqian10/neo3-gogogo/nep17"
-import "github.com/joeqian10/neo3-gogogo/rpc"
+import "github.com/mghnmtt/neo3-gogogo/helper"
+import "github.com/mghnmtt/neo3-gogogo/nep17"
+import "github.com/mghnmtt/neo3-gogogo/rpc"
 
 func SampleMethod() {
 	// create a new Nep17Helper
@@ -492,7 +492,7 @@ to [APIs](https://docs.neo.org/v3/docs/en-us/reference/rpc/latest-version/api.ht
 ```golang
 package sample
 
-import "github.com/joeqian10/neo3-gogogo/rpc"
+import "github.com/mghnmtt/neo3-gogogo/rpc"
 
 func SampleMethod() {
 	// create a rpc client
@@ -533,9 +533,9 @@ package sample
 
 import (
 	"math/big"
-	"github.com/joeqian10/neo3-gogogo/crypto"
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/sc"
+	"github.com/mghnmtt/neo3-gogogo/crypto"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/sc"
 )
 
 func SampleMethod() {
@@ -606,9 +606,9 @@ Typical usage:
 package sample
 
 import (
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/tx"
-	"github.com/joeqian10/neo3-gogogo/sc"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/tx"
+	"github.com/mghnmtt/neo3-gogogo/sc"
 )
 
 func SampleMethod() {
@@ -645,11 +645,11 @@ wallet, refer to [Wallet](https://docs.neo.org/v3/docs/en-us/basic/concept/walle
 package sample
 
 import (
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/keys"
-	"github.com/joeqian10/neo3-gogogo/rpc"
-	"github.com/joeqian10/neo3-gogogo/sc"
-	"github.com/joeqian10/neo3-gogogo/wallet"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/keys"
+	"github.com/mghnmtt/neo3-gogogo/rpc"
+	"github.com/mghnmtt/neo3-gogogo/sc"
+	"github.com/mghnmtt/neo3-gogogo/wallet"
 	"math/big"
 )
 

@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/joeqian10/neo3-gogogo/tx"
+	"github.com/mghnmtt/neo3-gogogo/tx"
 )
 
 type RpcTransaction struct {

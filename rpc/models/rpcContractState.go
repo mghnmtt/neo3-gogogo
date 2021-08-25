@@ -2,8 +2,8 @@ package models
 
 import (
 	"fmt"
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/sc"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/sc"
 )
 
 type RpcContractState struct {

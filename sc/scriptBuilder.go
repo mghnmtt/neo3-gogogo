@@ -3,8 +3,8 @@ package sc
 import (
 	"bytes"
 	"fmt"
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/io"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/io"
 	"go/types"
 	"math/big"
 	"strings"

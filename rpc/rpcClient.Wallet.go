@@ -1,6 +1,6 @@
 package rpc
 
-import "github.com/joeqian10/neo3-gogogo/rpc/models"
+import "github.com/mghnmtt/neo3-gogogo/rpc/models"
 
 type CloseWalletResponse struct {
 	RpcResponse

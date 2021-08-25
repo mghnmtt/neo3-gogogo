@@ -2,9 +2,9 @@ package models
 
 import (
 	"fmt"
-	"github.com/joeqian10/neo3-gogogo/crypto"
-	"github.com/joeqian10/neo3-gogogo/sc"
-	"github.com/joeqian10/neo3-gogogo/vm"
+	"github.com/mghnmtt/neo3-gogogo/crypto"
+	"github.com/mghnmtt/neo3-gogogo/sc"
+	"github.com/mghnmtt/neo3-gogogo/vm"
 	"math/big"
 	"strconv"
 )

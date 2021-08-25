@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"crypto/elliptic"
 	"encoding/hex"
-	"github.com/joeqian10/neo3-gogogo/io"
+	"github.com/mghnmtt/neo3-gogogo/io"
 	"github.com/stretchr/testify/assert"
 	"log"
 	"math/big"

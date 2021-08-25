@@ -1,9 +1,9 @@
 package keys
 
 import (
-	"github.com/joeqian10/neo3-gogogo/crypto"
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/sc"
+	"github.com/mghnmtt/neo3-gogogo/crypto"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/sc"
 )
 
 // returns a NEO-specific hash of the public key.

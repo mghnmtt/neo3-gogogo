@@ -5,7 +5,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/joeqian10/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/helper"
 )
 
 func TestVerifyProof(t *testing.T) {

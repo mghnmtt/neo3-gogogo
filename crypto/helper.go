@@ -2,7 +2,7 @@ package crypto
 
 import (
 	"fmt"
-	"github.com/joeqian10/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/helper"
 )
 
 func BytesToScriptHash(script []byte) *helper.UInt160 {

@@ -3,9 +3,9 @@ package nep17
 import (
 	"math/big"
 
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/rpc"
-	"github.com/joeqian10/neo3-gogogo/sc"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/rpc"
+	"github.com/mghnmtt/neo3-gogogo/sc"
 )
 
 // Nep17Helper is nep17 wrapper class, api reference: https://github.com/neo-project/proposals/tree/nep-17

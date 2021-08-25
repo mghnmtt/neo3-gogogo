@@ -1,7 +1,7 @@
 package keys
 
 import (
-	"github.com/joeqian10/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/helper"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

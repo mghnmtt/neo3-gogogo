@@ -1,10 +1,10 @@
 package tx
 
 import (
-	"github.com/joeqian10/neo3-gogogo/crypto"
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/io"
-	"github.com/joeqian10/neo3-gogogo/keys"
+	"github.com/mghnmtt/neo3-gogogo/crypto"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/io"
+	"github.com/mghnmtt/neo3-gogogo/keys"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

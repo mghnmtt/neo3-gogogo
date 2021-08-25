@@ -1,14 +1,14 @@
 package wallet
 
 import (
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/rpc"
-	"github.com/joeqian10/neo3-gogogo/rpc/models"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/rpc"
+	"github.com/mghnmtt/neo3-gogogo/rpc/models"
 	"github.com/stretchr/testify/mock"
 	"math/big"
 	"testing"
 
-	"github.com/joeqian10/neo3-gogogo/tx"
+	"github.com/mghnmtt/neo3-gogogo/tx"
 	"github.com/stretchr/testify/assert"
 )
 

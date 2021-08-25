@@ -1,11 +1,11 @@
 package block
 
 import (
-	"github.com/joeqian10/neo3-gogogo/helper"
-	"github.com/joeqian10/neo3-gogogo/io"
-	"github.com/joeqian10/neo3-gogogo/rpc/models"
-	"github.com/joeqian10/neo3-gogogo/sc"
-	"github.com/joeqian10/neo3-gogogo/tx"
+	"github.com/mghnmtt/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/io"
+	"github.com/mghnmtt/neo3-gogogo/rpc/models"
+	"github.com/mghnmtt/neo3-gogogo/sc"
+	"github.com/mghnmtt/neo3-gogogo/tx"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

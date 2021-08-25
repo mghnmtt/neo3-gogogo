@@ -1,8 +1,8 @@
 package block
 
 import (
-	//"github.com/joeqian10/neo-gogogo/rpc/models"
-	"github.com/joeqian10/neo3-gogogo/tx"
+	//"github.com/mghnmtt/neo-gogogo/rpc/models"
+	"github.com/mghnmtt/neo3-gogogo/tx"
 )
 
 type Block struct {

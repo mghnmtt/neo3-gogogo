@@ -2,7 +2,7 @@ package rpc
 
 import (
 	"fmt"
-	"github.com/joeqian10/neo3-gogogo/rpc/models"
+	"github.com/mghnmtt/neo3-gogogo/rpc/models"
 )
 
 func PopInvokeStack(response InvokeResultResponse) (*models.InvokeStack, error) {

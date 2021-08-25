@@ -3,8 +3,8 @@ package mpt
 import (
 	"errors"
 
-	"github.com/joeqian10/neo3-gogogo/crypto"
-	"github.com/joeqian10/neo3-gogogo/helper"
+	"github.com/mghnmtt/neo3-gogogo/crypto"
+	"github.com/mghnmtt/neo3-gogogo/helper"
 )
 
 //ProofDb a db to use for verify

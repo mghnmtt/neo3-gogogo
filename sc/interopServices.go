@@ -3,7 +3,7 @@ package sc
 import (
 	"encoding/binary"
 
-	"github.com/joeqian10/neo3-gogogo/crypto"
+	"github.com/mghnmtt/neo3-gogogo/crypto"
 )
 
 type InteropService string

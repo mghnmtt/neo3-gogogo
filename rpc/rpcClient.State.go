@@ -1,8 +1,8 @@
 package rpc
 
 import (
-	"github.com/joeqian10/neo3-gogogo/mpt"
-	"github.com/joeqian10/neo3-gogogo/rpc/models"
+	"github.com/mghnmtt/neo3-gogogo/mpt"
+	"github.com/mghnmtt/neo3-gogogo/rpc/models"
 )
 
 type GetProofResponse struct {

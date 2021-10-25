@@ -420,57 +420,6 @@ func (w *WalletHelper) MakeTransaction(script []byte, cosigners []tx.Signer, att
 	return nil, fmt.Errorf("insufficient GAS")
 }
 
-
-func (w *WalletHelper) ExecuMakeTransaction(script []byte, cosigners []tx.Signer, attributes []tx.ITransactionAttribute, balanceGas []AccountAndBalance) (*tx.Transaction, error) {
-	for _, ab := range balanceGas {
-		rb, err := helper.GenerateRandomBytes(4)
-		if err != nil {
-			return nil, err
-		}
-		nonce := binary.LittleEndian.Uint32(rb)
-		trx := new(tx.Transaction)
-		// version
-		trx.SetVersion(0)
-		// nonce
-		trx.SetNonce(nonce)
-		// script
-		trx.SetScript(script)
-		// validUntilBlock
-		blockHeight, err := w.GetBlockHeight()
-		if err != nil {
-			return nil, err
-		}
-		trx.SetValidUntilBlock(blockHeight + tx.MaxValidUntilBlockIncrement)
-		// signers
-		signers := getSigners(ab.Account, cosigners)
-		trx.SetSigners(signers)
-		// attributes
-		trx.SetAttributes(attributes)
-		// sysfee
-		gasConsumed, err := w.GetGasConsumed(script, models.CreateRpcSigners(signers))
-		if err != nil {
-			return nil, err
-		}
-		gasConsumed = int64(math.Max(float64(gasConsumed), 0))
-		trx.SetSystemFee(gasConsumed)
-		// netfee
-		netFee, err := w.CalculateNetworkFee(trx)
-		if err != nil {
-			return nil, err
-		}
-		trx.SetNetworkFee(int64(netFee))
-
-		return trx, nil
-
-	}
-	return nil, fmt.Errorf("insufficient GAS")
-}
-
-
-
-
-
-
 func (w *WalletHelper) Sign(ctx *ContractParametersContext, magic uint32) (bool, error) {
 	fSuccess := false
 	for _, scriptHash := range ctx.GetScriptHashes() {
@@ -591,6 +540,9 @@ func (w *WalletHelper) Transfer(assetHash *helper.UInt160, toAddress string, amo
 	}
 	sort.Sort(AccountAndBalanceSlice(balances))
 	balancesUsed := FindPayingAccounts(balances, amount)
+	if balancesUsed == nil {
+		return "", fmt.Errorf("insufficient funds of asset: %s", assetHash.String())
+	}
 	// add cosigner
 	cosigners := make([]tx.Signer, 0)
 	sb := sc.NewScriptBuilder()
@@ -613,7 +565,7 @@ func (w *WalletHelper) Transfer(assetHash *helper.UInt160, toAddress string, amo
 	}
 	balancesGas := make([]AccountAndBalance, 0)
 	if assetHash.Equals(tx.GasToken) {
-		balancesGas = FindRemainingAccountAndBalance(balancesUsed, balances)
+		balancesGas = balances // those gas used are already deducted from balances
 	} else {
 		balancesGas, err = w.GetAccountAndBalance(tx.GasToken)
 		if err != nil {
@@ -642,6 +594,52 @@ func (w *WalletHelper) Transfer(assetHash *helper.UInt160, toAddress string, amo
 	return response.Result.Hash, nil
 }
 
+func (w *WalletHelper) ExecuMakeTransaction(script []byte, cosigners []tx.Signer, attributes []tx.ITransactionAttribute, balanceGas []AccountAndBalance) (*tx.Transaction, error) {
+	for _, ab := range balanceGas {
+		rb, err := helper.GenerateRandomBytes(4)
+		if err != nil {
+			return nil, err
+		}
+		nonce := binary.LittleEndian.Uint32(rb)
+		trx := new(tx.Transaction)
+		// version
+		trx.SetVersion(0)
+		// nonce
+		trx.SetNonce(nonce)
+		// script
+		trx.SetScript(script)
+		// validUntilBlock
+		blockHeight, err := w.GetBlockHeight()
+		if err != nil {
+			return nil, err
+		}
+		trx.SetValidUntilBlock(blockHeight + tx.MaxValidUntilBlockIncrement)
+		// signers
+		signers := getSigners(ab.Account, cosigners)
+		trx.SetSigners(signers)
+		// attributes
+		trx.SetAttributes(attributes)
+		// sysfee
+		gasConsumed, err := w.GetGasConsumed(script, models.CreateRpcSigners(signers))
+		if err != nil {
+			return nil, err
+		}
+		gasConsumed = int64(math.Max(float64(gasConsumed), 0))
+		trx.SetSystemFee(gasConsumed)
+		// netfee
+		netFee, err := w.CalculateNetworkFee(trx)
+		if err != nil {
+			return nil, err
+		}
+		trx.SetNetworkFee(int64(netFee))
+
+		return trx, nil
+
+	}
+	return nil, fmt.Errorf("insufficient GAS")
+}
+
+
 func (w *WalletHelper) ExecuTransfer(assetHash *helper.UInt160, toAddress string, amount *big.Int, magic uint32) (*tx.Transaction, error) {
 	to, err := crypto.AddressToScriptHash(toAddress, w.wallet.protocolSettings.AddressVersion)
 	if err != nil {
@@ -654,6 +652,9 @@ func (w *WalletHelper) ExecuTransfer(assetHash *helper.UInt160, toAddress string
 	}
 	sort.Sort(AccountAndBalanceSlice(balances))
 	balancesUsed := FindPayingAccounts(balances, amount)
+	if balancesUsed == nil {
+		return nil, fmt.Errorf("insufficient funds of asset: %s", assetHash.String())
+	}
 	// add cosigner
 	cosigners := make([]tx.Signer, 0)
 	sb := sc.NewScriptBuilder()
@@ -676,7 +677,7 @@ func (w *WalletHelper) ExecuTransfer(assetHash *helper.UInt160, toAddress string
 	}
 	balancesGas := make([]AccountAndBalance, 0)
 	if assetHash.Equals(tx.GasToken) {
-		balancesGas = FindRemainingAccountAndBalance(balancesUsed, balances)
+		balancesGas = balances
 	} else {
 		balancesGas, err = w.GetAccountAndBalance(tx.GasToken)
 		if err != nil {
@@ -694,29 +695,4 @@ func (w *WalletHelper) ExecuTransfer(assetHash *helper.UInt160, toAddress string
 	}
 
 	return trx,nil
-}
-
-
-func FindRemainingAccountAndBalance(used, all []AccountAndBalance) []AccountAndBalance {
-	usedMap := make(map[string]AccountAndBalance, len(used))
-	for _, u := range used {
-		usedMap[u.Account.String()] = u
-	}
-
-	remaining := make([]AccountAndBalance, 0, len(all))
-	for _, a := range all {
-		if _, ok := usedMap[a.Account.String()]; ok {
-			u := usedMap[a.Account.String()]
-			if u.Value.Cmp(a.Value) < 0 {
-				aab := AccountAndBalance{
-					Account: a.Account,
-					Value:   big.NewInt(0).Sub(a.Value, u.Value),
-				}
-				remaining = append(remaining, aab)
-			}
-		} else {
-			remaining = append(remaining, a)
-		}
-	}
-	return remaining
 }
